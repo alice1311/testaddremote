@@ -93,8 +93,8 @@ function Sale() {
 
                                 </div>
                                 <div className="shoes_bottom">
-                                    <h4>{shoes.price} Vnđ</h4>
-                                    {/* <span> {(shoes.price * (1 - shoes.sale_percent / 100)).toFixed(2)}Vnđ</span> */}
+                                    <h4>{(shoes.price * (1 - shoes.sale_percent / 100)).toFixed(2)}$</h4>
+                                    <span>{shoes.price}$</span>
                                 </div>
                             </Link>
                         )

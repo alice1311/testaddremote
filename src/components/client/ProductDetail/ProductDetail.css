@@ -138,6 +138,8 @@
 .PD_con_right_info_size > div > button{
     width: 35px;
     aspect-ratio: 1/1;
+    color: #000;
+
 }
 
 .PD_con_right_info_count > div{
@@ -181,4 +183,17 @@
     margin-bottom: 20px;
     font-weight: 600;
     font-size: 22px;
+}
+
+.selectColor{
+    border: 1px solid red;
+    
+}
+.selectSize{
+    border: 1px solid red;
+    
+}
+.disableClick{
+    cursor: not-allowed;
+    opacity: 0.6;
 }

@@ -9,7 +9,6 @@ function ProductManager() {
 
     const { confirm } = Modal;
     const [messageApi, contextHolder] = message.useMessage();
-
     const [products, setProducts] = useState([]);
     const [loading, setLoading] = useState(false);
     const [optionVisible, setOptionVisible] = useState(false);

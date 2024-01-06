@@ -6,10 +6,11 @@ import { Badge, Breadcrumb, Flex, Space, Table } from "antd";
 import { Link, useParams } from "react-router-dom";
 import { BuildOutlined } from '@ant-design/icons';
 
+
 function ProductDetailManager() {
 
     const [productDetails, setProductDetails] = useState([]);
-
+    const [currentUser, setCurrentUser] = useState(JSON.parse(localStorage.getItem('user')));
     useEffect(() => {
         window.scrollTo(0, 0);
 
@@ -21,8 +22,8 @@ function ProductDetailManager() {
 
                 axios.get(`http://localhost:8080/api/v1/productDetails?page=1&size=99&sort=id,asc&search=`, {
                     auth: {
-                        username: "admin",
-                        password: "123456"
+                        username: currentUser.username,
+                        password: currentUser.password
                     }
                 })
                     .then(response => {

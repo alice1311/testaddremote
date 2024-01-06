@@ -140,9 +140,13 @@ tr {
 }
 
 .CartItem_info_variant>div {
-    background-color: rgb(255, 170, 0);
-    width: 12px;
-    height: 12px;
+    color: white;
+    background-color: black;
+    border-radius: 5px;
+    width: 90px;
+    height: 20px;
+    text-align: center;
+    padding-top: 2px;
 }
 
 .CartItem> :nth-child(2)>.CartItem_info {
@@ -188,4 +192,8 @@ tr {
 
 .CartItem> :nth-last-child(1)>div:hover {
     background-color: #ebebeb;
+}
+
+.delete{
+    border: 0px ;
 }

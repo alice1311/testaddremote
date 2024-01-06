@@ -12,7 +12,7 @@ function ProductDetailManagerById() {
 
     const [product, setProduct] = useState([]);
     const [productDeatail, setProductDetail] = useState([]);
-
+    const [currentUser, setCurrentUser] = useState(JSON.parse(localStorage.getItem('user')));
     useEffect(() => {
         window.scrollTo(0, 0);
 
@@ -29,8 +29,8 @@ function ProductDetailManagerById() {
 
                 axios.get(`http://localhost:8080/api/v1/products/productDetail/${id}`, {
                     auth: {
-                        username: "admin",
-                        password: "123456"
+                        username: currentUser.username,
+                        password: currentUser.password
                     }
                 })
                     .then(response => {
@@ -41,6 +41,7 @@ function ProductDetailManagerById() {
                                 size: pd.size,
                                 quantity: pd.quantity,
                                 key: index,
+                                update_productdetail: pd.id,
                                 name: product_arr.filter(p => {
                                     return (p.id === pd.product_id)
                                 })[0].name,
@@ -85,6 +86,11 @@ function ProductDetailManagerById() {
             dataIndex: 'quantity',
             sorter: (a, b) => a.quantity - b.quantity,
             width: 160,
+        },
+        {
+            title: 'Sửa',
+            dataIndex: 'update_productdetail',
+            render: (text) => <Link to={`/admin/productdetails/update/${text}`}><i class="fa-solid fa-pen-to-square" style={{fontSize: "18px"}}></i></Link>
         }
     ];
 

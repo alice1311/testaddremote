@@ -108,7 +108,7 @@ function Header() {
                     }
                     <Link to="cart" className="Header_cart_icon">
                         <i className="fa-solid fa-cart-shopping"></i>
-                        <span>4</span>
+                        
                     </Link>
                     {
                         boxUserPopup &&
@@ -141,7 +141,7 @@ function Login(props) {
     const onFinish = async (values) => {
 
         const { username, password } = values;
-
+        
         axios.get('http://localhost:8080/api/v1/login', {
             auth: {
                 username: username,
@@ -154,8 +154,9 @@ function Login(props) {
                     ...response.data,
                     password,
                     username,
+                    
                 }
-
+                console.log(userData);
                 localStorage.setItem('user', JSON.stringify(userData));
                 console.log(JSON.parse(localStorage.getItem('user')));
                 console.log('Đăng nhập thành công');

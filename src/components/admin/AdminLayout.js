@@ -23,6 +23,7 @@ import ProductDetailManager from './ProductDetailManager/ProductDetailManager';
 import ProductTypeManager from './ProductTypeManager/ProductTypeManager';
 import { useEffect, useState } from 'react';
 import UpdateProduct from './Product-Manager/UpdateProduct';
+import UpdateProductDetail from './ProductDetailManager/UpdateProductDetailById';
 
 const { Sider, Content } = Layout;
 
@@ -36,7 +37,6 @@ function AdminLayout() {
     useEffect(() => {
 
         const userData = JSON.parse(localStorage.getItem('user'));
-
         if (userData?.role === "ADMIN") {
             setAdminData(userData);
         } else {
@@ -104,6 +104,7 @@ function AdminLayout() {
                                 <Route path="/products/add-product" element={<AddProduct />} />
                                 <Route path="/products-detail/:id/add-product-detail" element={<AddProductDetail />} />
                                 <Route path="/products/update/:id" element={<UpdateProduct />} />
+                                <Route path="/productdetails/update/:id" element={<UpdateProductDetail />} />
                             </Routes>
                         </Content>
                     </Layout>
